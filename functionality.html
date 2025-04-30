@@ -6,6 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Functionalities - PODBot Phase II</title>
     <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/panzoom/9.4.0/panzoom.min.js"></script>
+    <style>
+        .zoom-container {
+            width: 100%;
+            overflow: hidden;
+            margin: 2rem auto;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+        .zoom-target {
+            width: 100%;
+            max-width: 1200px;
+            display: block;
+        }
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        .results-table th, .results-table td {
+            border: 1px solid #ccc;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        .results-table th {
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -25,13 +53,65 @@
         </nav>
     </header>
     <main>
-        <h2>Functionalities</h2>
-        <p>Functionalities content goes here.</p>
+        <h2>Functionalities and Results Overview</h2>
+        <p>PODBot is a modular, 3D-printable system enabling rapid deployment for ISR operations. Below you can explore interactive diagrams of each subsystem, review key metrics, and examine mission-specific capabilities.</p>
+
+        <h3>Interactive Poster Overview</h3>
+        <div class="zoom-container">
+            <img src="static/images/vertical_poster.jpg" alt="Vertical Poster of PODBot" class="zoom-target" id="zoom-target">
+        </div>
+
+        <h3>System Performance Results</h3>
+        <table class="results-table">
+            <tr><th>Metric</th><th>Requirement</th><th>Achieved</th></tr>
+            <tr><td>AirBot Flight Time</td><td>&ge;13 min (no payload)</td><td>23:34 min</td></tr>
+            <tr><td>GroundBot Drive Time</td><td>&ge;54 min</td><td>60 min</td></tr>
+            <tr><td>Payload Capacity</td><td>5 lbs</td><td>5 lbs</td></tr>
+            <tr><td>Payload Delivery Accuracy</td><td>&le;3 m from target</td><td>1 m</td></tr>
+            <tr><td>Video Transmission Range</td><td>AirBot: &ge;180m<br>GroundBot: &ge;900m</td><td>914m for both</td></tr>
+            <tr><td>Audio Range</td><td>&ge;1000m</td><td>1126m</td></tr>
+            <tr><td>Print Time</td><td>&le;12 hours</td><td>AirBot: 5h 13m<br>GroundBot: 6h 37m</td></tr>
+            <tr><td>Assembly Time</td><td>&le;12 hours</td><td>AirBot: 1h 4m<br>GroundBot: 1h 15m</td></tr>
+            <tr><td>Maneuvering Capability</td><td>Descend &ge;6ft vertically</td><td>Lowered 10ft</td></tr>
+        </table>
+
+        <h3>Meet the Systems</h3>
+        <p>Each PODBot unit was engineered with specific capabilities in mind. Explore what makes each bot unique.</p>
+
+        <div class="zoom-container">
+            <img src="static/images/P2_AB.JPG" alt="AirBot View" class="zoom-target">
+        </div>
+        <p><strong>AirBot:</strong> Capable of flying over 900 meters and delivering payloads within 1 meter of a target. Designed for vertical lift into collapsed structures, AirBot integrates high-efficiency thrust, long-range audio/video transmission, and rapid 3D-printed structural components.</p>
+
+        <div class="zoom-container">
+            <img src="static/images/P2_GB.JPG" alt="GroundBot View" class="zoom-target">
+        </div>
+        <p><strong>GroundBot:</strong> Equipped for asphalt, dirt, and grass terrain, GroundBot uses high-torque motors and 3D-printed gearing for stable maneuvering. It can operate for over an hour and deliver live HD video across 1100m of terrain.</p>
+
+        <div class="zoom-container">
+            <img src="static/images/lowering_platform.jpg" alt="Lowering Platform" class="zoom-target">
+        </div>
+
+        <p><strong>Lowering Platform:</strong> Custom-designed to enable safe deployment into vertical shafts or tunnels. The system supports remote-controlled descent over 10 feet and ensures the GroundBot can enter confined environments without impact or instability.</p>
+        <div class="zoom-container">
+            <img src="static/images/P2_Tandem.JPG" alt="Tandem Mission" class="zoom-target">
+        </div>
+        <p><strong>Tandem Operation:</strong> In the TD-1 mission, AirBot and GroundBot work together, providing real-time video from both air and ground perspectives—ideal for rescue and reconnaissance in dynamic, high-risk environments.</p>
+
     </main>
 
     <footer>
         <p>PODBot Phase II - Team 25018 - Anna Gold, Bennett Jackson, Emma Halferty, Ethan Oliver, Minh Le, Sam Goldsmith</p>
         <p>&copy; 2024 Raytheon Technologies. All rights reserved.</p>
     </footer>
+    <script>
+        const targets = document.querySelectorAll('.zoom-target');
+        targets.forEach(t => {
+            Panzoom(t, {
+                contain: 'outside',
+                maxScale: 6
+            });
+        });
+    </script>
 </body>
 </html>
