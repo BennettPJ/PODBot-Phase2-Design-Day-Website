@@ -229,3 +229,15 @@ a:hover {
 .support-section a:hover {
     color: #1565c0;
 }
+
+hr {
+    border: none;
+    border-top: 3px solid #d32f2f; 
+    margin: 20px 0; 
+}
+
+.small-divider {
+    border: none;
+    border-top: 1px solid #d32f2f; /* Thinner red line */
+    margin: 10px 0; /* Smaller spacing */
+}
